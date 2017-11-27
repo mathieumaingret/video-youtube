@@ -42,26 +42,25 @@ $myData = $video->get('mytype');
 
 Available datas types :
 
-#### url (string)
-used in the class constructor
+| Variable | Returned type | Description |
+|---|---|---|
+| url | string | used in the class constructor |
+| id | int | Youtube video id |
+| title | string | Youtube video title |
+| thumbnail | array | Thumbnail details (such as src, width, ...) |
+| author | array | Get author's name and channel url |
+| iframe | array | Thumbnail details (such as src, width, ...) |
 
-#### id (int)
-Youtube video id
+## Render methods
 
-#### title (string)
-Youtube video title
-
-#### thumbnail (array)
-Thumbnail details (such as src, width, ...)
-
-#### author (array)
-Get author's name and channel url
-
-#### iframe (array)
-Thumbnail details (such as src, width, ...)
-
-### Render methods
+Render the thumbnail or an iframe of the video
 
 ```
-$myRenderedMedia = $video->render('mytype', $myCustomAtributes);
+$myType = 'thumbnail';
+$myCustomAtributes = array('width' => 200, 'title' => 'My custom picture title') ;
+echo $video->render('mytype', $myCustomAtributes);
 ```
+| Parameter | Type | Description |
+|---|---|---|
+| type | string | thumbnail or iframe |
+| parameters | array | Associative array of html attributes
