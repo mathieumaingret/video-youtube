@@ -39,21 +39,21 @@ And if the video still exists
 ### Get methods
 
 ```
-$myData = $video->get('mytype');
+$myData = $video->get($mytype);
 ```
 
-#### Available datas types :
+#### Available datas types *($mytype)* :
 
 | Variable | Returned type | Description |
 |---|---|---|
-| url | string | used in the class constructor |
-| id | int | Youtube video id |
-| title | string | Youtube video title |
-| thumbnail | array | Thumbnail details (such as src, width, ...) |
-| author | array | Get author's name and channel url |
-| iframe | array | Thumbnail details (such as src, width, ...) |
+| `url` | string | *Used in the class constructor* |
+| `id` | int | *Youtube video id* |
+| `title` | string | *Video title* |
+| `author` | array | *Get author's name and channel url* |
+| `thumbnail` | array | *Thumbnail details (such as src, width, ...)* |
+| `iframe` | array | *Thumbnail details (such as src, width, ...)* |
 
-## Rendering methods
+### Rendering methods
 
 Render the thumbnail or an iframe of the video
 
@@ -64,22 +64,22 @@ echo $video->render('mytype', $myCustomAtributes);
 ```
 
 | Parameter | Type | Description |
-|---|---|---|
-| type | string | thumbnail or iframe |
-| parameters | array | Associative array of additionnal html attributes (or override existings)
+|---|:---|---|
+| `type` | string | *thumbnail or iframe* |
+| `parameters` | array | *Associative array of additionnal html attributes (or override existings)* |
 
-### Default attributes
+#### Default attributes
 
-#### thumbnail
+**thumbnail**
 
-* src (required)
-* alt (required)
+* src *(required)*
+* alt *(required)*
 * width
 
-#### iframe
+**iframe**
 
-* src (required)
+* src *(required)*
 * width 
 * height
-* frameborder (= 0)
-* allowfullscreen (= true)
+* frameborder *(= 0)*
+* allowfullscreen *(= true)*
