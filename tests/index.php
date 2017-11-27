@@ -1,5 +1,9 @@
 <?php require_once '../src/youtube.class.php'; ?>
-<?php $video = new VideoYoutube('https://www.youtube.com/watch?v=2106qUYzqJg&list=RD2106qUYzqJg&t=3'); ?>
+
+<?php
+    // Instantiate
+    $video = new VideoYoutube('https://www.youtube.com/watch?v=2106qUYzqJg&list=RD2106qUYzqJg&t=3');
+?>
 
 <!doctype html>
     <html lang="en">
@@ -16,19 +20,22 @@
     </head>
     <body>
 
+        <?php // Check is video is available : ?>
         <?php if ($video->isValid()): ?>
 
             <article>
                 <h2>Thumbnail :</h2>
-                <?php echo $video->render('thumbnail', array(
-                    'width' => 200,
-                    'title' => 'My custom title attribute'
-                )); ?>
+                <a href="<?php echo $video->get('url'); ?>" target="_blank">
+                    <?php echo $video->render('thumbnail', array(
+                        'width' => 200,
+                        'title' => 'My custom title attribute'
+                    )); ?>
+                </a>
             </article>
 
             <article>
                 <h2>Iframe</h2>
-                <?php echo $video->render('iframe', array()); ?>
+                <?php echo $video->render('iframe'); ?>
             </article>
 
             <article>

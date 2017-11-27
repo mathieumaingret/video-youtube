@@ -13,7 +13,7 @@ You only need to include the /src/youtube.class.php in your website
 
 ### How to use
 
-This is a simple php class so :
+This is a simple php class so:
 
 ```
 require_once 'src/youtube.class.php'
@@ -24,7 +24,9 @@ $videoYoutube = new VideoYoutube($videoUrl);
 
 ## Methods
 
-### Check validity of your url
+### Check your url validity 
+
+And if the video still exists
 
 ```
 <?php if ($videoYoutube->isValid()): ?>
@@ -40,7 +42,7 @@ $videoYoutube = new VideoYoutube($videoUrl);
 $myData = $video->get('mytype');
 ```
 
-Available datas types :
+#### Available datas types :
 
 | Variable | Returned type | Description |
 |---|---|---|
@@ -51,7 +53,7 @@ Available datas types :
 | author | array | Get author's name and channel url |
 | iframe | array | Thumbnail details (such as src, width, ...) |
 
-## Render methods
+## Rendering methods
 
 Render the thumbnail or an iframe of the video
 
@@ -60,7 +62,24 @@ $myType = 'thumbnail';
 $myCustomAtributes = array('width' => 200, 'title' => 'My custom picture title') ;
 echo $video->render('mytype', $myCustomAtributes);
 ```
+
 | Parameter | Type | Description |
 |---|---|---|
 | type | string | thumbnail or iframe |
-| parameters | array | Associative array of html attributes
+| parameters | array | Associative array of additionnal html attributes (or override existings)
+
+### Default attributes
+
+#### thumbnail
+
+* src (required)
+* alt (required)
+* width
+
+#### iframe
+
+* src (required)
+* width 
+* height
+* frameborder (= 0)
+* allowfullscreen (= true)
